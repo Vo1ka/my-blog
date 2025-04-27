@@ -7,12 +7,11 @@ import { auth, db } from "../../../fireBase";
 
 interface PostCardProps {
     post: Post;
-    readMore?: boolean;
     isFullText?: boolean;  // Флаг для полного/краткого отображения
   }
 const CommentsSection = lazy(() => import('../../Comments/CommentSection/CommentSection'));
 
-const PostCard = ({post, readMore = true, isFullText = false}:PostCardProps) => {
+const PostCard = ({post, isFullText = false}:PostCardProps) => {
     const [isLiked, setIsLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(post.likeCount || 0);
     const navigate = useNavigate();
@@ -141,13 +140,7 @@ const PostCard = ({post, readMore = true, isFullText = false}:PostCardProps) => 
                 </div>
             )}
 
-            {readMore && (
-                <div className="postcard__footer">
-                <Link to={`/posts/${post.id}`} className="read-more">
-                    Читать далее <span className="arrow">→</span>
-                </Link>
-                </div>
-            )}
+          
 
           <button onClick={() => setShowComments(!showComments)} className="comments-btn">
             {showComments ? 'Скрыть' : 'Показать комментарии'}

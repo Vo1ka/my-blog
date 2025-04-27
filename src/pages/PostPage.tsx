@@ -67,7 +67,8 @@ const PostPage = () => {
         <div className="post-full">
           <PostCard 
             post={post} 
-            readMore={false} 
+            
+            isFullText={true}
           />
           
         </div>
