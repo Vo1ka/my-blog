@@ -1,0 +1,52 @@
+@use 'variables' as *;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Занимает всю высоту экрана
+
+  .main-content {
+    flex: 1; // Занимает всё доступное пространство
+    padding-bottom: var(--spacing-xl); // Отступ от футера
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.about-page{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.login-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg-color);
+
+  // Распределение пространства между элементами
+  > * {
+    width: 100%;
+  }
+
+  // Центрирование формы авторизации с отступами
+  .authForm {
+    margin: var(--spacing-xxl) auto;
+    flex: 1 0 auto; // Растягивается на доступное пространство
+    padding: 0 var(--spacing-md); 
+  }
+  footer {
+    margin-top: auto;
+  }
+
+}

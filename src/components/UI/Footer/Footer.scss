@@ -1,0 +1,87 @@
+@import './../../../styles/variables.scss';
+.footer {
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-lg) 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+  
+    &__container {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+  
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+  
+    &__copyright {
+      order: 2;
+    }
+  
+    &__nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--spacing-md) var(--spacing-lg);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+    &__nav-item {
+      display: flex;
+      align-items: center;
+    }
+  
+    &__link {
+      color: var(--text);
+      text-decoration: none;
+      transition: all var(--transition-duration-normal) var(--ease-in-out);
+      padding: var(--spacing-xs) 0;
+      position: relative;
+  
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--primary);
+        transition: width var(--transition-duration-normal) var(--ease-in-out);
+      }
+  
+      &:hover {
+        color: var(--primary);
+  
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  
+    // Адаптив для планшетов
+    @media (min-width: 600px) {
+      &__content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+  
+      &__copyright {
+        order: 0;
+      }
+    }
+  
+    // Адаптив для десктопов
+    @media (min-width: 900px) {
+      padding: var(--spacing-xl) 0;
+      font-size: var(--font-size-base);
+    }
+  }

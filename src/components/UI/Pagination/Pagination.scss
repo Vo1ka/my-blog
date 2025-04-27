@@ -1,0 +1,55 @@
+@use '../../../styles/variables.scss' as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-xl;
+  padding: $spacing-md 0;
+  flex-wrap: wrap;
+
+  button {
+    min-width: 40px;
+    height: 40px;
+    border: 1px solid $light-gray;
+    background: $white;
+    color: $text;
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+
+    &:hover:not(:disabled) {
+      background: $light-gray;
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &.active {
+      background: $primary;
+      color: $white;
+      border-color: $primary;
+      box-shadow: 0 4px 8px rgba($primary, 0.2);
+    }
+  }
+}
+
+// Адаптивность
+@media (max-width: 600px) {
+  .pagination {
+    gap: $spacing-xs;
+    
+    button {
+      min-width: 32px;
+      height: 32px;
+      font-size: 0.9rem;
+    }
+  }
+}

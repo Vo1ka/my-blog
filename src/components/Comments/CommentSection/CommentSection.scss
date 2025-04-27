@@ -1,0 +1,87 @@
+.comments-section {
+    margin-top: 32px;
+    padding: 0 4px;
+    animation: fadeIn 0.4s ease-out;
+  
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+  
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234296e1'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' /%3E%3C/svg%3E");
+        background-size: contain;
+      }
+    }
+  
+    > div:not(.comment-form) { // Стили для лоадера
+      text-align: center;
+      padding: 20px;
+      color: #718096;
+      font-size: 0.95rem;
+    }
+    .loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 30px 0;
+      }
+      
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(66, 153, 225, 0.2);
+        border-radius: 50%;
+        border-top-color: #4299e1;
+        animation: spin 1s linear infinite;
+      
+        .dark & {
+          border-top-color: #63b3ed;
+          border-color: rgba(99, 179, 237, 0.2);
+        }
+      }
+      
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+  
+    // Анимация появления
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    // Адаптивность
+    @media (max-width: 768px) {
+      margin-top: 24px;
+      padding: 0;
+  
+      h3 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+  
+        &::before {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+

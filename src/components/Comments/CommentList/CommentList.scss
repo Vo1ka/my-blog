@@ -1,0 +1,105 @@
+@use './../../../styles/variables.scss' as *;
+
+.commentsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+
+  // Анимация появления комментариев
+  li {
+    animation: fadeIn 0.3s var(--ease-out) forwards;
+    opacity: 0;
+    
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * 0.1s;
+      }
+    }
+  }
+
+  // Стили для каждого комментария
+  > li {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-xs);
+    transition: all var(--transition-duration-fast);
+
+    &:hover {
+      border-color: var(--border-color-dark);
+      box-shadow: var(--shadow-sm);
+    }
+
+    // Разделитель между комментариями
+    + li {
+      border-top: 1px solid var(--border-color-light);
+      padding-top: var(--spacing-md);
+    }
+  }
+
+  // Стили для вложенных комментариев
+  ul {
+    list-style: none;
+    padding-left: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+    border-left: 2px solid var(--border-color-light);
+    
+    > li {
+      margin-top: var(--spacing-md);
+    }
+  }
+
+  // Кастомный скроллбар
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+    border-radius: var(--radius-sm);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: var(--radius-sm);
+    
+    &:hover {
+      background: var(--scrollbar-thumb-hover);
+    }
+  }
+}
+
+// Анимация появления
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .commentsList {
+    gap: var(--spacing-sm);
+
+    > li {
+      padding: var(--spacing-sm);
+      border-radius: var(--radius-md);
+    }
+
+    ul {
+      padding-left: var(--spacing-md);
+    }
+  }
+}

@@ -1,0 +1,90 @@
+@use './../../../styles/variables.scss' as *;
+
+.post-list {
+  padding: var(--spacing-xl) 0;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .load-more-btn {
+    background-color: var(--primary);
+    color: var(--text-on-primary);
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    margin-top: var(--spacing-lg);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+  }
+
+  .loading, .error {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    color: var(--primary-darkd);
+  }
+
+  .error {
+    color: var(--danger);
+  }
+
+  .empty {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    color: var(--primary-light);
+    
+    p {
+      margin: 0;
+      
+      &:first-child {
+        font-size: 1.2rem;
+        margin-bottom: var(--spacing-xs);
+      }
+      
+      &:last-child {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .postList__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+// Анимация появления карточек
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.post-list-animation {
+  animation: fadeIn 0.5s var(--ease-out) forwards;
+}
