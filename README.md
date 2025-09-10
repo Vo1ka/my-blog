@@ -38,8 +38,8 @@
 ## Быстрый старт
 
 ```bash
-git clone https://github.com/<USER>/<REPO>.git
-cd <REPO>
+git clone https://github.com/Vo1ka/my-blog.git
+cd my-blog
 npm i
 npm run dev
 ```
