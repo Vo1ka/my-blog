@@ -1,54 +1,108 @@
-# React + TypeScript + Vite
+## My‑Blog — современный блог с Firebase, лайками и профилями
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Лёгкое и быстрое блого‑приложение: авторизация, создание постов, комментарии и лайки в реальном времени. Упор на удобство, чистую архитектуру и понятный UX.
 
-Currently, two official plugins are available:
+[![My Blog — Live Demo](https://github.com/Vo1ka/my-blog/tree/master/src/img/preview.png)](https://my-blog-aobktpfvw-vo1kas-projects.vercel.app/ "Открыть демо на Vercel")
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+### Содержание
+-     [Возможности](#возможности)
+-     [Быстрый старт](#быстрый-старт)
+-     [Переменные окружения](#переменные-окружения)
+-     [Технологии](#технологии)
+-     [Планы](#планы)
+-     [Лицензия](#лицензия)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Возможности
+
+-     Авторизация
+  -   Firebase Auth / JWT‑decode; защита приватных маршрутов и редиректы.
+-     Посты
+  -   Создание, редактирование, удаление; черновики и предпросмотр обложки.
+  -   Чистые даты и форматирование через date‑fns.
+-     Лайки и комментарии
+  -   Обновления в реальном времени на базе Cloud Firestore.
+  -   Счётчики, сортировка по активности.
+-     Профиль пользователя
+-     Темы: ThemeProvider для смены на светлую/темную тему.
+-     Поиск и навигация
+  -   Маршруты на React Router 7, фильтры, пагинация.
+-     Производительность и DX
+  -   Redux Toolkit store, аккуратные слайсы и сервис‑слой; стили на Sass.
+
+---
+
+## Быстрый старт
+
+```bash
+git clone https://github.com/<USER>/<REPO>.git
+cd <REPO>
+npm i
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Откройте http://localhost:5173
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## Переменные окружения
+
+Создайте файл .env в корне проекта и добавьте ключи Firebase:
+
 ```
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+VITE_FIREBASE_STORAGE_BUCKET=...
+VITE_FIREBASE_MESSAGING_SENDER_ID=...
+VITE_FIREBASE_APP_ID=...
+```
+
+При деплое на Vercel добавьте эти переменные в Project Settings → Environment Variables.
+
+---
+
+## Технологии
+
+-     React 19, React DOM 19
+-     Vite 6 + @vitejs/plugin-react
+-     React Router DOM 7
+-     Firebase 11 (Auth, Firestore) + @firebase/firestore 4
+-     Redux Toolkit 2, React Redux 9
+-     Axios 1
+-     date‑fns 4
+-     jwt‑decode 4
+-     React Icons 5
+-     Sass 1
+
+Инфраструктура и инструменты:
+-     TypeScript 5.7
+-     ESLint 9 (+ eslint‑plugin‑react‑hooks, eslint‑plugin‑react‑refresh, @eslint/js, globals, typescript‑eslint)
+-     json‑server и json‑server‑auth для локальных экспериментов
+-     Vite scripts
+
+---
+
+## Планы
+
+-     Черновики и автосохранение редактора
+-     Уведомления о новых комментариях
+-     Роли (author/mod) и модерация контента
+-     Таб “Избранное” и персональная лента
+-     Тестирование (React Testing Library / Cypress) и CI‑бейджи
+
+---
+
+## Лицензия
+
+MIT — используйте и модифицируйте свободно. Если проект оказался полезен, поддержите звёздой ⭐
+
+---
+
+Кликабельное превью (добавьте своё изображение и замените ссылку на демо):
+
+[My‑Blog — Live Demo](https://my-blog-aobktpfvw-vo1kas-projects.vercel.app/)
+
