@@ -2,7 +2,7 @@
 
 Лёгкое и быстрое блого‑приложение: авторизация, создание постов, комментарии и лайки в реальном времени. Упор на удобство, чистую архитектуру и понятный UX.
 
-[![My Blog — Live Demo](https://github.com/Vo1ka/my-blog/tree/master/src/img/preview.png)](https://my-blog-aobktpfvw-vo1kas-projects.vercel.app/ "Открыть демо на Vercel")
+[![My Blog — Live Demo](https://github.com/Vo1ka/my-blog/blob/master/src/img/preview.png)](https://my-blog-aobktpfvw-vo1kas-projects.vercel.app/ "Открыть демо на Vercel")
 
 ---
 
